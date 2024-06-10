@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django_celery_beat',
 
     'reminderer',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -147,3 +148,5 @@ CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND')
 CELERY_TIMEZONE = "Australia/Tasmania"
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
+
+AUTH_USER_MODEL = 'users.User'

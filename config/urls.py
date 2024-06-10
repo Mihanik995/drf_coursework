@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('', include('reminderer.urls', namespace='reminderer')),
+    path('', include('users.urls', namespace='users')),
 ]
