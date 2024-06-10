@@ -6,8 +6,9 @@ from users.models import User, NULLABLE
 
 HABIT_MODEL = 'reminderer.Habit'
 
+
 class Habit(models.Model):
-    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE, **NULLABLE)
 
     place = models.CharField(max_length=100)
     time = models.DateTimeField()
