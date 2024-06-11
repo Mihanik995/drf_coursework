@@ -11,6 +11,8 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
+    tg_chat_id = models.BigIntegerField()
+
     def __str__(self):
         return f"{self.email}"
 

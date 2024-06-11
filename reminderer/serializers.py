@@ -1,8 +1,7 @@
-from datetime import timedelta
-
 from rest_framework import serializers
 
 from reminderer.models import Habit
+from reminderer.scripts import send_reminder
 from reminderer.validators import BountyValidator, ExecutionTimeValidator, ConnectedHabitValidator, \
     PleasurefulHabitsValidator, FrequencyValidator, TimeValidator
 
