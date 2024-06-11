@@ -40,7 +40,7 @@ class PleasurefulHabitsValidator:
 
 class FrequencyValidator:
     def __call__(self, attrs):
-        if attrs['frequency'] > timedelta(days=7):
+        if 'frequency' in attrs.keys() and attrs['frequency'] > timedelta(days=7):
             raise ValidationError({
                 "frequency": "Habit frequency cannot be more then 7 days"
             })
