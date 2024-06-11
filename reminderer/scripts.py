@@ -10,3 +10,6 @@ def send_reminder(habit: Habit):
     chat_id = habit.owner.tg_chat_id
     text = str(habit)
     bot.send_message(chat_id, text)
+
+    habit.time += habit.frequency
+    habit.save()

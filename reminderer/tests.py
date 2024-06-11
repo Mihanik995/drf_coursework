@@ -1,8 +1,8 @@
 from datetime import datetime, timezone, timedelta
 
 from rest_framework import status
-from rest_framework.validators import ValidationError
 from rest_framework.test import APITestCase
+from rest_framework.validators import ValidationError
 
 from reminderer.models import Habit
 from users.models import User

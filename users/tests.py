@@ -13,5 +13,3 @@ class UserTestCase(APITestCase):
         })
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertTrue(User.objects.filter(email='user@testmail.com').exists())
-
-

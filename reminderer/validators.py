@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta, timezone, tzinfo
+from datetime import datetime, timedelta, timezone
 
 from rest_framework.validators import ValidationError
 
