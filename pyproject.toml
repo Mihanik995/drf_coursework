@@ -18,6 +18,7 @@ django-celery-beat = "^2.6.0"
 drf-yasg = "^1.21.7"
 setuptools = "^70.0.0"
 djangorestframework-simplejwt = "^5.3.1"
+django-cors-headers = "^4.3.1"
 
 
 [build-system]
