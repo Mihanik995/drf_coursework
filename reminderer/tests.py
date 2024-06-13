@@ -10,7 +10,10 @@ from users.models import User
 
 class HabitTestCase(APITestCase):
     def setUp(self):
-        self.test_user = User.objects.create(email='test@mail.com')
+        self.test_user = User.objects.create(
+            email='test@mail.com',
+            tg_chat_id=347214298
+        )
         self.test_user.set_password('123test456')
         self.test_user.save()
 
