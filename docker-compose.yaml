@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - '6379:6379'
+
+  api:
+    build: .
+    restart: always
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+      - redis
+
+  celery:
+    build: .
+    restart: always
+    command: bash -c "celery -A config worker --beat --scheduler django --loglevel=info"
+    depends_on:
+      - redis
+
+volumes:
+  pgdata:
+    driver: local
